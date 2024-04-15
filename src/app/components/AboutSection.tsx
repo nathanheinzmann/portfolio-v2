@@ -8,7 +8,7 @@ const TAB_DATA = [
     title: "Especialidades",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-5">
         <li>Sites institucionais</li>
         <li>Blogs</li>
         <li>MarketPlaces</li>
