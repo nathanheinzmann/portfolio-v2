@@ -17,7 +17,7 @@ const EmailSection = () => {
       className="wrapper gap-4 relative"
     >
       <div className="adapter flex flex-col gap-8 sm:flex-row justify-between">
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute bottom-3 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute bottom-80 md:bottom-3 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
         <div className="z-10 w-full">
           <h5 className="text-xl font-bold text-white my-2">
             Entre em contato
