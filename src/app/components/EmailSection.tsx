@@ -6,10 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const EmailSection = () => {
-  const [form, setForm] = useState({
-    name: "",
-    message: "",
-  });
+  const [isCopied, setIsCopied] = useState(false);
 
   return (
     <section
@@ -26,63 +23,44 @@ const EmailSection = () => {
             Se você gostou do meu trabalho e quer me conhecer melhor, entre em
             contato comigo. Vamos conversar!
           </p>
+
+        </div>
+        <div className="w-full flex justify-end flex-col items-end">
+          <div className="flex align-center gap-2">
+            <label
+              htmlFor="name"
+              className="text-white my-auto text-sm font-medium"
+            >
+              E-mail: <span className="font-bold">nathanhph@gmail.com</span>
+            </label>
+            <button
+              className="text-primary-500 px-4 py-2 rounded-md transition-all duration-300"
+              onClick={() => {
+                navigator.clipboard.writeText("nathanhph@gmail.com")
+                setIsCopied(true)
+                setTimeout(() => {
+                  setIsCopied(false)
+                }, 2000)
+              }}
+            >
+              {isCopied ? "Copiado!" : "Copiar"}
+            </button>
+          </div>
+          <span className="block w-[220px] h-0.5 bg-primary-500 opacity-25 mt-2 mb-4"></span>
+          <label
+            htmlFor="message"
+            className="text-white block mb-2 text-sm"
+          >
+            Outras formas de contato
+          </label>
           <div className="socials flex flex-row gap-2">
-            <Link href="github.com">
+            <Link href="https://github.com/nathanheinzmann/" target="_blank" rel="noreferrer noopener" className="cursor-pointer hover:opacity-75 transition-opacity">
               <Image src={GithubIcon} alt="Github Icon" />
             </Link>
-            <Link href="linkedin.com">
+            <Link href="https://www.linkedin.com/in/nathanheinzmann/" target="_blank" rel="noreferrer noopener" className="cursor-pointer hover:opacity-75 transition-opacity">
               <Image src={LinkedinIcon} alt="Linkedin Icon" />
             </Link>
           </div>
-        </div>
-        <div className="w-full">
-          <form className="flex flex-col">
-            <div className="mb-6">
-              <label
-                htmlFor="name"
-                className="text-white block mb-2 text-sm font-medium"
-              >
-                Seu nome
-              </label>
-              <input
-                name="name"
-                type="text"
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                id="name"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Seu nome"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Mensagem
-              </label>
-              <textarea
-                name="message"
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Gostaria de saber mais sobre..."
-              />
-            </div>
-            <a
-              type="submit"
-              className="cursor-pointer flex justify-center bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-              onClick={() => {
-                const wppUrl = "https://api.whatsapp.com/send?phone=55997197148";
-                if (Object.values(form).every((x) => x !== "")) {
-                  const message = `Olá, meu nome é *${form.name}*!%0a%0a${form.message}`;
-                  window.open(`${wppUrl}&text=${message}`);
-                }
-              }}
-            >
-              Enviar email
-            </a>
-          </form>
         </div>
       </div>
     </section>
