@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
+import LazyLoad from "react-lazy-load";
 
 const projectsData = [
   {
@@ -100,17 +101,19 @@ const ProjectsSection = () => {
           <br />
           Clique sobre a imagem para visualizar o projeto.
         </p>
-        <div ref={ref} className="flex flex-wrap justify-evenly">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              previewUrl={project.previewUrl}
-            />
-          ))}
-        </div>
+        <LazyLoad offset={400}>
+          <div ref={ref} className="flex flex-wrap justify-evenly">
+            {projectsData.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                imgUrl={project.image}
+                previewUrl={project.previewUrl}
+              />
+            ))}
+          </div>
+        </LazyLoad>
       </div>
     </section>
   );
