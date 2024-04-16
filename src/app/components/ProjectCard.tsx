@@ -10,7 +10,7 @@ type Props = {
 
 const ProjectCard = ({ imgUrl, title, description, previewUrl }: Props) => {
   return (
-    <div className="h-[234px] sm:w-[370px] sm:h-[300px] mb-36 w-[calc(100vw-48px)]">
+    <div className="h-[234px] sm:w-[370px] sm:h-[300px] mb-36 w-[calc(100vw-24px)]">
       <div
         className="w-full h-full rounded-t-xl relative group !bg-cover !bg-center"
         style={{ background: `url(${imgUrl})` }}
