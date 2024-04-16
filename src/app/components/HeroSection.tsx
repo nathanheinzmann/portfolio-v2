@@ -1,9 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import scrollTo from '../../utils/scrollTo';
+import ReactGA from "react-ga4";
 
 const HeroSection = () => {
+
+  useEffect(() => {
+    ReactGA.initialize('G-44WBQ1B839');
+    ReactGA.send({
+      hitType: 'pageview',
+      title: document.title,
+      page: window.location.pathname + window.location.search
+    });
+  }, []);
+
   return (
     <section className="wrapper mt-24" id="hero">
       <div className="adapter flex-col text-center flex gap-4 items-center justify-center pt-[54px] md:pt-[64px] lg:pt-[80px]">
