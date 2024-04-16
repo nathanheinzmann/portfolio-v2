@@ -26,7 +26,7 @@ const ProjectCard = ({ imgUrl, title, description, previewUrl }: Props) => {
         </div>
       </div>
       <div className="text-white !bg-[#202020] py-6 px-4 rounded-b-xl">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-[#ADB7BE]">{description}</p>
       </div>
     </div>

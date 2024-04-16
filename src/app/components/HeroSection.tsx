@@ -18,7 +18,7 @@ const HeroSection = () => {
         <div className="flex justify-center gap-4 sm:gap-8">
           <Link
             href="/#contact"
-            className="px-6 inline-block py-3 w-full sm:w-fit rounded-md bg-primary-500 text-white hover:bg-primary-600 transition-all duration-300"
+            className="px-6 inline-block py-3 w-full sm:w-fit rounded-md bg-primary-800 text-white hover:bg-primary-900 transition-all duration-300"
           >
             Contato
           </Link>

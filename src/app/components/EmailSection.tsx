@@ -15,9 +15,9 @@ const EmailSection = () => {
     >
       <div className="adapter flex flex-col gap-8 sm:flex-row justify-between">
         <div className="z-10 w-full">
-          <h5 className="text-xl font-bold text-white my-2">
+          <h3 className="text-xl font-bold text-white my-2">
             Entre em contato
-          </h5>
+          </h3>
           <p className="text-[#ADB7BE] mb-4 max-w-md">
             Se você gostou do meu trabalho e quer me conhecer melhor, entre em
             contato comigo. Vamos conversar!
