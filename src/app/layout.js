@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  // title: 'Portfólio | Nathan Heinzmann',
+  title: 'Portfólio | Nathan Heinzmann',
   description: 'Portfólio de Nathan Heinzmann, desenvolvedor Front-end. Veja meus projetos e entre em contato.',
   url: 'https://nathanheinzmann.com',
   keywords: ['portfolio', 'nathan heinzmann', 'front-end', 'developer'],
