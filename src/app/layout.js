@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Portfólio | Nathan Heinzmann',
+  // title: 'Portfólio | Nathan Heinzmann',
   description: 'Portfólio de Nathan Heinzmann, desenvolvedor Front-end. Veja meus projetos e entre em contato.',
   url: 'https://nathanheinzmann.com',
   keywords: ['portfolio', 'nathan heinzmann', 'front-end', 'developer'],
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
-      <Script
+      <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6753416185343224"
         crossorigin="anonymous"
