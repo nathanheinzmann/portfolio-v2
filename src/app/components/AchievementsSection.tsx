@@ -17,7 +17,7 @@ const achievementsList = [
   },
   {
     metric: "Anos de carreira",
-    value: "3",
+    value: "4",
     postfix: "+",
   },
   {
