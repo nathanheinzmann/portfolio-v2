@@ -125,7 +125,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: 'br',
+        fallbackLng: 'en',
         supportedLngs: ['br', 'en'],
         ns: ['common'],
         defaultNS: 'common',

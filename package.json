@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3050",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3050",
+    "lint": "next lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:navigation": "cypress run --spec \"cypress/e2e/navigation.cy.ts\"",
+    "test:contact": "cypress run --spec \"cypress/e2e/contact.cy.ts\"",
+    "test:projects": "cypress run --spec \"cypress/e2e/projects.cy.ts\"",
+    "test:language": "cypress run --spec \"cypress/e2e/language-switcher.cy.ts\"",
+    "test:responsive": "cypress run --spec \"cypress/e2e/responsive.cy.ts\""
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -31,6 +40,7 @@
   "devDependencies": {
     "@types/node": "20.12.2",
     "@types/react": "18.2.73",
+    "cypress": "^14.5.0",
     "typescript": "^5.4.5"
   }
 }
