@@ -1,5 +1,7 @@
 import React from "react";
 import { EyeIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from 'next-i18next';
+import { useIsClient } from '../../utils/useIsClient';
 
 type Props = {
   imgUrl: string;
@@ -9,6 +11,11 @@ type Props = {
 };
 
 const ProjectCard = ({ imgUrl, title, description, previewUrl }: Props) => {
+  const isClient = useIsClient();
+  const { t } = useTranslation('common');
+
+  if (!isClient) return null;
+
   return (
     <div className="h-[234px] sm:w-[370px] sm:h-[300px] mb-36 w-[calc(100vw-24px)]">
       <div
@@ -21,7 +28,7 @@ const ProjectCard = ({ imgUrl, title, description, previewUrl }: Props) => {
             className="relative rounded-full border-[#ADB7BE] hover:border-white group/link"
           >
             {previewUrl ? <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" /> : null}
-            {!previewUrl ? <p className="text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-not-allowed">Privado</p> : null}
+            {!previewUrl ? <p className="text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-not-allowed">{t('private')}</p> : null}
           </button>
         </div>
       </div>

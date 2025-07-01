@@ -4,25 +4,33 @@ import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import Logo from "./Logo";
-
-const navLinks = [
-  {
-    title: "Sobre",
-    id: "about",
-  },
-  {
-    title: "Projetos",
-    id: "projects",
-  },
-  {
-    title: "Contato",
-    id: "contact",
-  },
-];
+import { useTranslation } from 'next-i18next';
+import { useIsClient } from '../../utils/useIsClient';
 
 const Navbar = () => {
+  const isClient = useIsClient();
   const [navbarOpen, setNavbarOpen] = useState(false);
   const ref = useRef(null);
+  const { t, i18n } = useTranslation('common');
+
+  const handleChangeLocale = (locale) => {
+    i18n.changeLanguage(locale);
+  };
+
+  const navLinks = [
+    {
+      title: t('about'),
+      id: 'about',
+    },
+    {
+      title: t('projects'),
+      id: 'projects',
+    },
+    {
+      title: t('contact'),
+      id: 'contact',
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,38 +58,53 @@ const Navbar = () => {
     };
   }, [ref]);
 
+  if (!isClient) return null;
+
   return (
     <nav className="wrapper fixed border-b border-[#33353F] top-0 left-0 z-10 bg-[#121212]" ref={ref}>
       <div className="adapter py-0">
-        <div className="flex lg:py-4 flex-wrap items-center justify-between mx-auto py-2">
+        <div className="flex lg:py-4 flex-wrap items-center justify-between mx-auto py-2 h-full">
           <Logo />
-          <div className="mobile-menu block md:hidden">
-            {!navbarOpen ? (
-              <button
-                onClick={() => setNavbarOpen(true)}
-                aria-label="Open Menu"
-                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+          <div className="flex items-center gap-4">
+            <div className="country-selector h-[38px]">
+              <select
+                value={i18n.language}
+                onChange={e => handleChangeLocale(e.target.value)}
+                className="bg-[#121212] text-white border border-[#33353F] rounded px-2 h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#33353F] transition-colors"
+                aria-label="Select language"
               >
-                <Bars3Icon className="h-5 w-5" />
-              </button>
-            ) : (
-              <button
-                onClick={() => setNavbarOpen(false)}
-                aria-label="Close Menu"
-                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-              >
-                <XMarkIcon className="h-5 w-5" />
-              </button>
-            )}
-          </div>
-          <div className="menu hidden md:block md:w-auto" id="navbar">
-            <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <NavLink href={link.id} title={link.title} />
-                </li>
-              ))}
-            </ul>
+                <option value="br">🇧🇷 BR</option>
+                <option value="en">🇺🇸 EN</option>
+              </select>
+            </div>
+            <div className="mobile-menu block md:hidden">
+              {!navbarOpen ? (
+                <button
+                  onClick={() => setNavbarOpen(true)}
+                  aria-label="Open Menu"
+                  className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+                >
+                  <Bars3Icon className="h-5 w-5" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setNavbarOpen(false)}
+                  aria-label="Close Menu"
+                  className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+                >
+                  <XMarkIcon className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+            <div className="menu hidden md:block md:w-auto" id="navbar">
+              <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <NavLink href={link.id} title={link.title} />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         {navbarOpen ? <MenuOverlay links={navLinks} /> : null}

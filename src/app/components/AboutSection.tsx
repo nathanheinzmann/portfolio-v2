@@ -2,55 +2,60 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-
-const TAB_DATA = [
-  {
-    title: "Especialidades",
-    id: "skills",
-    content: (
-      <ul className="list-disc pl-5">
-        <li>Sites institucionais</li>
-        <li>Blogs</li>
-        <li>MarketPlaces</li>
-        <li>Paineis administrativos</li>
-        <li>Plataformas de cursos</li>
-      </ul>
-    ),
-  },
-];
+import { useTranslation } from 'next-i18next';
+import { useIsClient } from '../../utils/useIsClient';
 
 const AboutSection = () => {
+  const isClient = useIsClient();
+  const { t } = useTranslation('common');
+
+  const TAB_DATA = [
+    {
+      title: t('specialties'),
+      id: "skills",
+      content: (
+        <ul className="list-disc pl-5">
+          <li>{t('institutional_sites')}</li>
+          <li>{t('blogs')}</li>
+          <li>{t('marketplaces')}</li>
+          <li>{t('admin_panels')}</li>
+          <li>{t('course_platforms')}</li>
+        </ul>
+      ),
+    },
+  ];
+
+  if (!isClient) return null;
+
   return (
     <section className="wrapper text-white" id="about">
       <div className="adapter flex gap-8 items-center xl:gap-16">
         <div className="hidden md:flex flex-1 justify-center">
-        <Image
-          src="/images/about-image.svg"
-          alt="About Image"
-          sizes="100vw"
-          style={{
-            flex: 1,
-            height: 'auto',
-          }}
-          width={500}
-          height={500}
+          <Image
+            src="/images/about-image.svg"
+            alt="About Image"
+            sizes="100vw"
+            style={{
+              flex: 1,
+              height: 'auto',
+            }}
+            width={500}
+            height={500}
           />
-          </div>
+        </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col flex-1">
-          <h2 className="text-4xl font-bold text-white mb-4">Meu trabalho</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">{t('my_work')}</h2>
           <p className="text-base lg:text-lg">
-            Atualmente, atendo pequenas e médias empresas, ajudando-as a
-            {' '}<b>construir uma presença online</b> forte e eficaz.
+            {t('about_desc')}
             <br /><br />
-            Além disso, ofereço soluções personalizadas para <b>atender às
-            necessidades exclusivas</b> de cada cliente.
+            {t('about_desc2')}
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
               active={true}
             >
               {" "}
-              Especialidades{" "}
+              {t('specialties')}{" "}
             </TabButton>
           </div>
           <div className="mt-8">

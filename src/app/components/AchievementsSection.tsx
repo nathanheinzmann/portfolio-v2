@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { useTranslation } from 'next-i18next';
+import { useIsClient } from '../../utils/useIsClient';
 
 const AnimatedNumbers = dynamic(
   () => {
@@ -9,25 +11,30 @@ const AnimatedNumbers = dynamic(
   { ssr: false }
 );
 
-const achievementsList = [
-  {
-    metric: "Projetos",
-    value: "50",
-    postfix: "+",
-  },
-  {
-    metric: "Anos de carreira",
-    value: "4",
-    postfix: "+",
-  },
-  {
-    metric: "Certificações",
-    value: "30",
-    postfix: "+",
-  },
-];
-
 const AchievementsSection = () => {
+  const isClient = useIsClient();
+  const { t } = useTranslation('common');
+
+  const achievementsList = [
+    {
+      metric: t('projects_metric'),
+      value: "50",
+      postfix: "+",
+    },
+    {
+      metric: t('years_metric'),
+      value: "4",
+      postfix: "+",
+    },
+    {
+      metric: t('certifications_metric'),
+      value: "30",
+      postfix: "+",
+    },
+  ];
+
+  if (!isClient) return null;
+
   return (
     <section className="wrapper xl:gap-16">
       <div className="adapter">

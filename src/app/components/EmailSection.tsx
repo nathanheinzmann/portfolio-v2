@@ -4,9 +4,15 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from 'next-i18next';
+import { useIsClient } from '../../utils/useIsClient';
 
 const EmailSection = () => {
+  const isClient = useIsClient();
   const [isCopied, setIsCopied] = useState(false);
+  const { t } = useTranslation('common');
+
+  if (!isClient) return null;
 
   return (
     <section
@@ -16,11 +22,10 @@ const EmailSection = () => {
       <div className="adapter flex flex-col gap-8 sm:flex-row justify-between">
         <div className="z-10 w-full">
           <h3 className="text-xl font-bold text-white my-2">
-            Entre em contato
+            {t('get_in_touch')}
           </h3>
           <p className="text-[#ADB7BE] mb-4 max-w-md">
-            Se você gostou do meu trabalho e quer me conhecer melhor, entre em
-            contato comigo. Vamos conversar!
+            {t('contact_text')}
           </p>
 
         </div>
@@ -30,7 +35,7 @@ const EmailSection = () => {
               htmlFor="name"
               className="text-white my-auto text-sm font-medium"
             >
-              E-mail: <span className="font-bold">nathanhph@gmail.com</span>
+              {t('email')} <span className="font-bold">nathanhph@gmail.com</span>
             </label>
             <button
               className="text-primary-500 px-4 py-2 rounded-md transition-all duration-300"
@@ -42,7 +47,7 @@ const EmailSection = () => {
                 }, 2000)
               }}
             >
-              {isCopied ? "Copiado!" : "Copiar"}
+              {isCopied ? t('copied') : t('copy')}
             </button>
           </div>
           <span className="block w-[220px] h-0.5 bg-primary-500 opacity-25 mt-2 mb-4"></span>
@@ -50,7 +55,7 @@ const EmailSection = () => {
             htmlFor="message"
             className="text-white block mb-2 text-sm"
           >
-            Outras formas de contato
+            {t('other_contacts')}
           </label>
           <div className="socials flex flex-row gap-2">
             <Link href="https://github.com/nathanheinzmann/" target="_blank" rel="noreferrer noopener" className="cursor-pointer hover:opacity-75 transition-opacity">
