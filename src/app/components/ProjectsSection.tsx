@@ -92,6 +92,20 @@ const ProjectsSection = () => {
       tag: ["Web"],
       previewUrl: "https://cart.hostgator.com.br/?pid=437&billingCycle=triennially",
     },
+    {
+      title: t('project_bitlandia_title'),
+      description: t('project_bitlandia_desc'),
+      image: "/images/projects/bitlandia.png",
+      tag: ["Todos", "Web"],
+      previewUrl: "https://bitlandia.com.br/",
+    },
+    {
+      title: t('project_mykento_title'),
+      description: t('project_mykento_desc'),
+      image: "/images/projects/mykento.png",
+      tag: ["Todos", "Web"],
+      previewUrl: "https://mykento.com/",
+    },
   ];
 
   if (!isClient) return null;

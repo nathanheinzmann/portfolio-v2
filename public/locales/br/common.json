@@ -51,5 +51,9 @@
   "project_pede_boia_admin_title": "Pede Boia Admin",
   "project_pede_boia_admin_desc": "Painel Administrativo da Pede Boia",
   "project_hostgator_cart_title": "Carrinho da HostGator",
-  "project_hostgator_cart_desc": "Carrinho de compras da HostGator"
+  "project_hostgator_cart_desc": "Carrinho de compras da HostGator",
+  "project_bitlandia_title": "BitLandia",
+  "project_bitlandia_desc": "Carteira de criptomoedas",
+  "project_mykento_title": "Mykento",
+  "project_mykento_desc": "Sistema de gerenciamento para petshops"
 } 

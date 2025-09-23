@@ -58,7 +58,11 @@ const resources = {
             project_pede_boia_admin_title: "Pede Boia Admin",
             project_pede_boia_admin_desc: "Painel Administrativo da Pede Boia",
             project_hostgator_cart_title: "Carrinho da HostGator",
-            project_hostgator_cart_desc: "Carrinho de compras da HostGator"
+            project_hostgator_cart_desc: "Carrinho de compras da HostGator",
+            project_bitlandia_title: "BitLandia",
+            project_bitlandia_desc: "Carteira de criptomoedas",
+            project_mykento_title: "Mykento",
+            project_mykento_desc: "Sistema de gerenciamento para petshops"
         }
     },
     en: {
@@ -115,7 +119,11 @@ const resources = {
             project_pede_boia_admin_title: "Pede Boia Admin",
             project_pede_boia_admin_desc: "Pede Boia Administrative Panel",
             project_hostgator_cart_title: "HostGator Cart",
-            project_hostgator_cart_desc: "HostGator Shopping Cart"
+            project_hostgator_cart_desc: "HostGator Shopping Cart",
+            project_bitlandia_title: "BitLandia",
+            project_bitlandia_desc: "Cryptocurrency wallet",
+            project_mykento_title: "Mykento",
+            project_mykento_desc: "Pet shop management system"
         }
     }
 };
