@@ -33,6 +33,19 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6753416185343224"
           crossOrigin="anonymous"
         />
+        <Script
+          type="module"
+          id="bubble-chat"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              import BubbleChat from 'https://agent-factory-chat.hostgator.io/scripts/start-chat.js';
+              const hashId = '5ccb6143-9677-458b-b326-0284f253bd67';
+              const bubbleChat = new BubbleChat(hashId, 'prod');
+              bubbleChat.open();
+            `
+          }}
+        />
       </body>
     </html>
   )
