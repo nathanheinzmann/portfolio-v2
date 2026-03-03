@@ -23,7 +23,7 @@ const AchievementsSection = () => {
     },
     {
       metric: t('years_metric'),
-      value: "4",
+      value: "5",
       postfix: "+",
     },
     {
